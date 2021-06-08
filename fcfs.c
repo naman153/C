@@ -69,9 +69,12 @@ int main(){
     }
     //Print the input data.
     printf("\n\n\n\nINPUT (FIRST COME FIRST SERVE):\n");
-    printf("Process ID  Arrival Time  Burst Time \n");
+    printf("|============|==============|===========|\n");
+    printf("|Process ID  |Arrival Time  |Burst Time |\n");
+    printf("|============|==============|===========|\n");
     for(int i=0;i<n;i++){
-    printf("%.2f         %.2f            %.2f \n", ID[i], AT[i], BT[i]);
+    printf("|%6.2f      |%6.2f        |%6.2f     |\n", ID[i], AT[i], BT[i]);
+    printf("|------------|--------------|-----------|\n");
     }
 
 
@@ -83,9 +86,12 @@ int main(){
     
     //Printing the result after applying fcfs
     printf("\n\n\n\nRESULT (FIRST COME FIRST SERVE):\n");
-    printf("Process ID  Arrival Time  Burst Time  Completion Time  TurnAround Time  Waiting Time\n");
+    printf("|==============|=================|===============|=================|=================|=============|\n");
+    printf("|Process ID    |Arrival Time     |Burst Time     |Completion Time  |TurnAround Time  |Waiting Time |\n");
+    printf("|==============|=================|===============|=================|=================|=============|\n");
     for(int i=0;i<n;i++){
-    printf("%.2f         %.2f            %.2f        %.2f            %.2f             %.2f\n", ID[i],AT[i], BT[i], CT[i], TA[i], WT[i]);
+    printf("|%6.2f        |%6.2f           |%6.2f         |%6.2f           |%6.2f           |%6.2f       |\n", ID[i],AT[i], BT[i], CT[i], TA[i], WT[i]);
+    printf("|--------------|-----------------|---------------|-----------------|-----------------|-------------|\n");
     }
 
     printf("\nAverage Turnaround Time: %.2f", avg_ta/n);
@@ -98,25 +104,25 @@ int main(){
     int i=0;
     while( ctt < CT[n-1]){
         if(ctt < AT[i]){
-            printf("    NP ");
+            printf("         IDLE");
             ctt += AT[i]-ctt;
         }
         else{
-            printf("    P%.0f ",ID[i]);
+            printf("         P%4.0f",ID[i]);
             ctt = CT[i];
             i++;
         }
     }
     printf("\n");
     ctt=0,i=0;
-    printf("0.0");
+    printf("|%6.1f|      ", 00.0);
     while(ctt < CT[n-1]){
         if(ctt < AT[i]){
-            printf("    %.1f",AT[i]);
+            printf("|%6.1f|      ",AT[i]);
             ctt += AT[i]-ctt;
         }
         else{
-            printf("    %.1f",CT[i]);
+            printf("|%6.1f|      ",CT[i]);
             ctt = CT[i];
             i++;
         }
